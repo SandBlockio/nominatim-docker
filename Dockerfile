@@ -1,6 +1,6 @@
 # -*-dockerfile-*-
 
-FROM baseimage-docker:0.10.2
+FROM phusion/baseimage:0.10.2
 LABEL maintainer Natan Sągol <m@merlinnot.com>
 
 # Use bash

@@ -67,10 +67,12 @@ RUN apt-get install -y --no-install-recommends \
       python \
       python-pip \
       python-setuptools \
+      python-psycopg2 \
+      python3-psycopg2 \
       sudo \
       zlib1g-dev
 RUN pip install --upgrade pip
-RUN pip install osmium
+RUN pip install osmium psycopg2 psycopg2-binary
 
 # Create nominatim user account
 USER root

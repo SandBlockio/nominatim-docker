@@ -1,22 +1,22 @@
 version: '3'
+
 services:
-  dev:
-    privileged: true
-    environment:
-      - DISPLAY=${DISPLAY}
-    image: merlinnot/devver:latest@sha256:a9469ef7ce950cca3447fc6db599c70d32620f41a8917c41f36a2e75d9c77964
-    dns:
-      - 8.8.4.4
-      - 8.8.8.8
-    ports:
-      - "3000"
-      - "8000"
-      - "8080-8085"
-      - "14500"
-    volumes:
-      - .:/code
-      - /tmp/.X11-unix:/tmp/.X11-unix
-      - ${HOME}/.ssh/id_rsa:/root/.ssh/id_rsa
-    ulimits:
-      nproc: 65535
-      nofile: 524288
+    openstreetmap:
+        build: 
+            context: .
+            args:
+                BUILD_THREADS: 4
+                BUILD_MEMORY: 8GB
+                OSM2PGSQL_CACHE: 2000
+                RUNTIME_THREADS: 2
+                RUNTIME_MEMORY: 8GB
+                PGSQL_VERSION: 9.3
+                PBF_URL: https://download.geofabrik.de/europe/france-latest.osm.pbf
+                REPLICATION_URL: http://download.geofabrik.de/europe/france-updates
+        restart: always
+        ports:
+            - "80:80"
+        #logging:
+        #    driver: gcplogs
+        #    options:
+        #        mode: non-blocking

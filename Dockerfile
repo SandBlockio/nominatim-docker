@@ -1,6 +1,6 @@
 # -*-dockerfile-*-
 
-FROM phusion/baseimage:latest@sha256:29479c37fcb28089eddd6619deed43bcdbcccf2185369e0199cc51a5ec78991b
+FROM baseimage-docker:0.10.2
 LABEL maintainer Natan Sągol <m@merlinnot.com>
 
 # Use bash

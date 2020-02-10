@@ -5,11 +5,11 @@ services:
         build: 
             context: .
             args:
-                BUILD_THREADS: 4
-                BUILD_MEMORY: 8GB
-                OSM2PGSQL_CACHE: 2000
+                BUILD_THREADS: 8
+                BUILD_MEMORY: 10GB
+                OSM2PGSQL_CACHE: 8000
                 RUNTIME_THREADS: 2
-                RUNTIME_MEMORY: 8GB
+                RUNTIME_MEMORY: 4GB
                 PGSQL_VERSION: 9.3
                 PBF_URL: https://download.geofabrik.de/europe/france-latest.osm.pbf
                 REPLICATION_URL: http://download.geofabrik.de/europe/france-updates
